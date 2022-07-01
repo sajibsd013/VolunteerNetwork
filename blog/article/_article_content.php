@@ -17,11 +17,11 @@ while ($row = mysqli_fetch_assoc($result)) {
     $sql2 = "SELECT * FROM `users` WHERE `UserID` =" . $UserID;
     $result2 = mysqli_query($con, $sql2);
     $row2 = mysqli_fetch_assoc($result2);
-    $username = $row2['username'];
+    $name = $row2['name'];
 
-    if (isset($_SESSION['userId']) && $_SESSION['userId'] == $UserID) {
-        $post_update_url = '/E-learning/blog/update/?blog=' . $BlogID;
-        $post_dlt_url = '/E-learning/blog/config/_delete.php?BlogID=' . $BlogID;
+    if (isset($_SESSION['UserID']) && $_SESSION['UserID'] == $UserID) {
+        $post_update_url = '/VolunteerNetwork/blog/update/?blog=' . $BlogID;
+        $post_dlt_url = '/VolunteerNetwork/blog/config/_delete.php?BlogID=' . $BlogID;
         $post_update_delete_code = '
                 <div class="dropdown dropstart " style="position: absolute; right:10px; top:3px">
                     <a href="#" class="d-block link-dark text-decoration-none " id="dropdownUser1"
@@ -55,8 +55,8 @@ if ($total_vote == 0) {
 
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
-    $user_id = $_SESSION["userId"];
-    $vote_url_blog = '/E-learning/blog/config/_vote.php?blog=' . $BlogID;
+    $user_id = $_SESSION["UserID"];
+    $vote_url_blog = '/VolunteerNetwork/blog/config/_vote.php?blog=' . $BlogID;
 
     $sql_isLiked = "SELECT * FROM `votes` WHERE `BlogID`='$BlogID' AND `UserID`= '$user_id'";
     $result_isLiked = mysqli_query($con, $sql_isLiked);
@@ -77,7 +77,7 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         }
     }
 }
-$action_url = "/E-Learning/blog/config/_post_comment.php";
+$action_url = "/VolunteerNetwork/blog/config/_post_comment.php";
 
 ?>
 
@@ -97,7 +97,7 @@ $action_url = "/E-Learning/blog/config/_post_comment.php";
                         </span>
                     </h4>
                     <p class="card-text">
-                        <small class="text-muted"><?php echo $date_format ?> by <strong> <?php echo $username ?> </strong> </small>
+                        <small class="text-muted"><?php echo $date_format ?> by <strong> <?php echo $name ?> </strong> </small>
                     </p>
                 </div>
                 <div class="card-body">
@@ -144,9 +144,9 @@ $action_url = "/E-Learning/blog/config/_post_comment.php";
 
                         <p class="lead">
                             You are not logged in.
-                            <a class="text-decoration-none text-bold" style="cursor: pointer;" onclick="redirectTo(`/E-learning/auth/login`)">Login</a>
+                            <a class="text-decoration-none text-bold" style="cursor: pointer;" onclick="redirectTo(`/VolunteerNetwork/auth/login`)">Login</a>
                             or
-                            <a class="text-decoration-none text-bold" style="cursor: pointer;" onclick="redirectTo(`/E-learning/auth/registration`)">Signup</a>
+                            <a class="text-decoration-none text-bold" style="cursor: pointer;" onclick="redirectTo(`/VolunteerNetwork/auth/registration`)">Signup</a>
                             now to Post a Comment!
                         </p>
                     </div>

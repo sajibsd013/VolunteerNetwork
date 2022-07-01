@@ -11,11 +11,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../../partials/_css_files.php' ?>
 
-    <title>E-learning</title>
+    <title>Volunteer Network</title>
 </head>
 
 <body>
-    <div class="container " onmousemove="j_editor()" onload="console.log('LOad')">
+    <div class="container ">
         <?php
         include '../../db/_db.php';
 
@@ -26,7 +26,7 @@ session_start();
             $sql_cmt_v = "SELECT * FROM comments WHERE CommentID=" . $CommentID;
             $result = mysqli_query($con, $sql_cmt_v);
             $row = mysqli_fetch_assoc($result);
-            if ($row["UserID"] == $_SESSION["userId"]) {
+            if ($row["UserID"] == $_SESSION["UserID"]) {
         ?>
                 <div class="row justify-content-center g-1 my-2 ">
                     <div class="col-lg-10 col-md-7 col-sm-10  bg-white shadow-lg rounded p-4">
@@ -49,7 +49,7 @@ session_start();
             $sql_rpl_v = "SELECT * FROM reply WHERE ReplyID =" . $ReplyID;
             $result = mysqli_query($con, $sql_rpl_v);
             $row = mysqli_fetch_assoc($result);
-            if ($row["UserID"] == $_SESSION["userId"]) {
+            if ($row["UserID"] == $_SESSION["UserID"]) {
             ?>
                 <div class="row justify-content-center g-1 my-2 ">
                     <div class="col-lg-10 col-md-7 col-sm-10  bg-white shadow-lg rounded p-4">
@@ -72,10 +72,10 @@ session_start();
             $sql_blog_v = "SELECT * FROM blog WHERE BlogID =" . $BlogID;
             $result = mysqli_query($con, $sql_blog_v);
             $row = mysqli_fetch_assoc($result);
-            if ($row["UserID"] == $_SESSION["userId"]) {
+            if ($row["UserID"] == $_SESSION["UserID"]) {
             ?>
                 <div class="row justify-content-center g-1 my-2 ">
-                    <div class="col-lg-10 col-sm-10  bg-white shadow-lg rounded p-4">
+                    <div class="col-lg-9 col-sm-10  bg-white shadow-lg rounded p-4">
                         <form onsubmit="updatePost(event)">
                             <h3 class="pb-2"> Update Post</h3>
                             <input type="text" class="d-none  _blog_data" id="BlogID" name="BlogID" value="<?php echo $BlogID; ?>">

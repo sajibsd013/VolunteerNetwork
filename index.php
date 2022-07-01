@@ -21,7 +21,7 @@ session_start();
     include 'db/_db.php';
     include 'partials/_header.php';
     include 'partials/_home.php';
-    include 'campaigns/_campaigns.php';
+    include 'campaigns/partials/_campaigns.php';
     include 'partials/_footer.php';
     ?>
 

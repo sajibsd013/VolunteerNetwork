@@ -25,7 +25,7 @@ session_start();
                 include '../partials/_header.php';
                 include '../../db/_db.php';
 
-                include '_users.php';
+                include '_blog.php';
             } else {
                 include '../../partials/_page_not_found.php';
             }

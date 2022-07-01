@@ -13,8 +13,14 @@
             $img    = $row['img'];
             $goals    = $row['goals'];
             $raised    = $row['raised'];
-            $to_go = $goals - $raised;
-            $percent  = ($raised / $goals) * 100;
+            if ($raised < $goals) {
+                $percent  = ($raised / $goals) * 100;
+                $to_go = $goals - $raised;
+            } else {
+                $percent = 100;
+                $to_go = 0;
+            }
+
 
         ?>
             <div class="col-md-4 ">
@@ -44,14 +50,13 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white">
-                        <a class="btn btn-outline-dark btn-sm w-100" href="#">Donate Now</a>
+                        <button class="btn btn-outline-dark btn-sm w-100" onclick="redirectTo('<?php echo $root_url ?>/campaigns/donate.php?id=<?php echo $CampaignID ?>')">Donate Now</button>
                     </div>
                 </div>
             </div>
 
 
         <?php
-
 
         }
 

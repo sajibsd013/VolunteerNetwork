@@ -16,7 +16,7 @@ if ($rows2 > 0) {
         $result3 = mysqli_query($con, $sql2);
 
         $row3 = mysqli_fetch_assoc($result3);
-        $reply_by = $row3['username'];
+        $reply_by = $row3['name'];
 
 
 
@@ -36,9 +36,9 @@ if ($rows2 > 0) {
         }
 
 
-        if (isset($_SESSION["userId"])) {
-            $user_id = $_SESSION["userId"];
-            $vote_url_reply = '/E-learning/blog/config/_vote.php?ReplyID=' . $ReplyID . '&BlogID=' . $BlogID;
+        if (isset($_SESSION["UserID"])) {
+            $user_id = $_SESSION["UserID"];
+            $vote_url_reply = '/VolunteerNetwork/blog/config/_vote.php?ReplyID=' . $ReplyID . '&BlogID=' . $BlogID;
 
             $sql_isLiked = "SELECT * FROM `votes` WHERE `ReplyID`='$ReplyID' AND `UserID`= '$user_id'";
             $result_isLiked = mysqli_query($con, $sql_isLiked);
@@ -61,8 +61,8 @@ if ($rows2 > 0) {
             }
 
             if ($reply_by_id == $user_id) {
-                $rpl_update_url = '/E-learning/blog/update/?reply=' . $ReplyID;
-                $rpl_dlt_url = '/E-learning/blog/config/_delete.php?ReplyID=' . $ReplyID;
+                $rpl_update_url = '/VolunteerNetwork/blog/update/?reply=' . $ReplyID;
+                $rpl_dlt_url = '/VolunteerNetwork/blog/config/_delete.php?ReplyID=' . $ReplyID;
 
                 $reply_update_delete_code = '
                 <div class="dropdown dropstart " style="position: absodlute;">

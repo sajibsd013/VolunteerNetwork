@@ -12,7 +12,7 @@ session_start();
     <?php include '../partials/_css_files.php' ?>
 
 
-    <title>E-learning</title>
+    <title>Volunteer Network</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@ session_start();
                 include '../db/_db.php';
                 include '../partials/_header.php';
 
-                $sql = "SELECT * FROM `blog` WHERE `status`='pending' AND `UserID`=" . $_SESSION['userId'];
+                $sql = "SELECT * FROM `blog` WHERE `status`='pending' AND `UserID`=" . $_SESSION['UserID'];
 
                 $result = mysqli_query($con, $sql);
 
@@ -36,11 +36,11 @@ session_start();
                     $BlogID = $row['BlogID'];
                     $UserID = $row['UserID'];
 
-                    $url = "/E-learning/blog/article/?p=" . $BlogID;
+                    $url = "/VolunteerNetwork/blog/article/?p=" . $BlogID;
 
-                    if (isset($_SESSION['userId']) && ($_SESSION['userId'] == $UserID)) {
-                        $post_update_url = '/E-learning/blog/update/?blog=' . $BlogID;
-                        $post_dlt_url = '/E-learning/blog/config/_delete.php?BlogID=' . $BlogID;
+                    if (isset($_SESSION['UserID']) && ($_SESSION['UserID'] == $UserID)) {
+                        $post_update_url = '/VolunteerNetwork/blog/update/?blog=' . $BlogID;
+                        $post_dlt_url = '/VolunteerNetwork/blog/config/_delete.php?BlogID=' . $BlogID;
                         $post_update_delete_code = '
                     <div class="dropdown dropstart " style="position: absolute; right:10px">
                         <a href="#" class="d-block link-dark text-decoration-none " id="dropdownUser1"
@@ -50,7 +50,7 @@ session_start();
                             </span>
                         </a>
                         <ul class="dropdown-menu text-small my-2" aria-labelledby="dropdownUser1">
-                            <li><a class="dropdown-item pointer" href="'.$post_update_url.'"  ">Edit</a></li>
+                            <li><a class="dropdown-item pointer" href="' . $post_update_url . '"  ">Edit</a></li>
                             <li><a class="dropdown-item "  onclick="return confirm(`Are you sure?`) && getFunc(`' . $post_dlt_url . '`)"  style="cursor: pointer;" ">Delete</a></li>
                         </ul>
                     </div>

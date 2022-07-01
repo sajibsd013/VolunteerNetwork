@@ -10,9 +10,6 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php include '../partials/_css_files.php'; ?>
-
-
-
     <title>Volunteer Network</title>
 </head>
 
@@ -21,7 +18,7 @@ session_start();
     <?php
     include '../db/_db.php';
     include '../partials/_header.php';
-    include 'partials/_campaigns.php';
+    include 'partials/_donate.php';
     include '../partials/_footer.php';
     ?>
 

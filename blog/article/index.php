@@ -13,7 +13,7 @@ session_start();
     <?php include '../../partials/_css_files.php' ?>
 
 
-    <title>E-learning</title>
+    <title>Volunteer Network</title>
 </head>
 
 <body>

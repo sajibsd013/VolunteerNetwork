@@ -8,6 +8,10 @@ $sql = "SELECT * FROM `campaigns`";
 $result1 = mysqli_query($con, $sql);
 $total_campaigns = mysqli_num_rows($result1);
 
+$sql = "SELECT * FROM `blog`";
+$result2 = mysqli_query($con, $sql);
+$total_blogs = mysqli_num_rows($result2);
+
 $name = $_SESSION["name"];
 
 
@@ -71,7 +75,7 @@ $name = $_SESSION["name"];
                         <i class="fa fa-tasks fa-5x "></i>
                     </div>
                     <div class="col-9 text-end">
-                        <h1 class=""><?php echo 100; ?></h1>
+                        <h1 class=""><?php echo $total_blogs; ?></h1>
                         <div>Total Blog Article!</div>
                     </div>
                 </div>

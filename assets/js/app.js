@@ -26,13 +26,43 @@ const getFunc = (Url) => {
     req.onreadystatechange = () => {
         if (req.readyState == 4 && req.status == 200) {
             response = req.responseText;
-            if (response == 1) {
+            if (response == "reload" || response==1) {
                 Reload();
+            }else if(response=="back"){
+                history.back();
+            }else{
+                console.log(response);
             }
         }
     }
 }
 
+
+
+const postReply = (e, CommentID, BlogID) => {
+    e.preventDefault();
+    let response = 0;
+    let comment_content = document.getElementById(`reply${CommentID}`);
+    let form_data = new FormData();
+
+    form_data.append("BlogID", BlogID);
+    form_data.append("CommentID", CommentID);
+    form_data.append("reply", comment_content.value);
+
+    let req = new XMLHttpRequest();
+    req.open('POST', '/VolunteerNetwork/blog/config/_post_reply.php', true);
+    req.send(form_data);
+    req.onreadystatechange = () => {
+        if (req.readyState == 4 && req.status == 200) {
+            response = req.responseText;
+            if (response == 1) {
+                Reload();
+            }
+        }
+     
+    }
+
+}
 
 
 // Routhing
@@ -108,9 +138,9 @@ const submitForm = (e, url) => {
             }else if (response == 2) {
                 pageURL = root_url+"/auth/login/";
                 redirectTo(pageURL);
-            } else if (response == 3) {
+            } else if (response == 3 || response=="reload") {
                 Reload();
-            } else if (response == 4) {
+            } else if (response == 4 || response=="back") {
                 history.back();
             } else {
                 messageFunc(response, "submit");
@@ -118,6 +148,48 @@ const submitForm = (e, url) => {
         }
 
     }
+}
+
+
+
+//Update 
+const update = (update) => {
+    let response = 0;
+    let form_element = document.getElementsByClassName(update);
+    let form_data = new FormData();
+    for (let i = 0; i < form_element.length; i++) {
+        form_data.append(form_element[i].name, form_element[i].value);
+    }
+    let req = new XMLHttpRequest();
+    req.open('POST', '/VolunteerNetwork/blog/config/_update.php', true);
+    req.send(form_data);
+    req.onreadystatechange = () => {
+        if (req.readyState == 4 && req.status == 200) {
+            response = req.responseText;
+            if (response == 1) {
+                history.back();
+            }else{
+                console.log(response);
+            }
+        }
+    
+
+    }
+}
+
+
+const updateComment = (e) => {
+    e.preventDefault();
+    update("_comment_data");
+}
+
+const updateReply = (e) => {
+    e.preventDefault();
+    update("_reply_data");
+}
+const updatePost = (e) => {
+    e.preventDefault();
+    update("_blog_data");
 }
 
 

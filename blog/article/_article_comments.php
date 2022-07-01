@@ -24,7 +24,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     $result2 = mysqli_query($con, $sql2);
 
     $row2 = mysqli_fetch_assoc($result2);
-    $comment_by = $row2['username'];
+    $comment_by = $row2['name'];
 
 
     $post_time = postTime($comment_time);
@@ -40,9 +40,9 @@ while ($row = mysqli_fetch_assoc($result)) {
             ';
     }
 
-    if (isset($_SESSION["userId"])) {
-        $user_id = $_SESSION["userId"];
-        $vote_url_comment = '/E-learning/blog/config/_vote.php?cmnt=' . $CommentID . '&BlogID=' . $BlogID;
+    if (isset($_SESSION["UserID"])) {
+        $user_id = $_SESSION["UserID"];
+        $vote_url_comment = '/VolunteerNetwork/blog/config/_vote.php?cmnt=' . $CommentID . '&BlogID=' . $BlogID;
 
         $sql_isLiked = "SELECT * FROM `votes` WHERE `CommentID`='$CommentID' AND `UserID`= '$user_id'";
         $result_isLiked = mysqli_query($con, $sql_isLiked);
@@ -64,8 +64,8 @@ while ($row = mysqli_fetch_assoc($result)) {
             }
         }
         if ($comment_by_id == $user_id) {
-            $cmt_update_url = '/E-learning/blog/update/?comment=' . $CommentID;
-            $comment_dlt_url = '/E-learning/blog/config/_delete.php?CommentID=' . $CommentID;
+            $cmt_update_url = '/VolunteerNetwork/blog/update/?comment=' . $CommentID;
+            $comment_dlt_url = '/VolunteerNetwork/blog/config/_delete.php?CommentID=' . $CommentID;
             $comment_update_delete_code = '
                         <div class="dropdown dropstart">
                             <a href="#" class="d-block link-dark text-decoration-none " id="dropdownUser1"
@@ -107,7 +107,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
         $reply_form = '
-                    <form onsubmit="postReply(event,' . $CommentID . ','.$BlogID.')" style="display:none;" id="reply_form' . $CommentID . '" >
+                    <form onsubmit="postReply(event,' . $CommentID . ',' . $BlogID . ')" style="display:none;" id="reply_form' . $CommentID . '" >
                         <div class="form-group my-2 ">
                             <label for="">Write a Reply</label>
                             <textarea class="form-control  my-1" id="reply' . $CommentID . '" name="reply' . $CommentID . '" rows="1" required></textarea>

@@ -13,12 +13,10 @@ function blogPost($con, $sql)
         $BlogID = $row['BlogID'];
         $UserID = $row['UserID'];
 
-
-
         $sql2 = "SELECT * FROM `users` WHERE `UserID` =" . $UserID;
         $result2 = mysqli_query($con, $sql2);
         $row2 = mysqli_fetch_assoc($result2);
-        $username = $row2['username'];
+        $name = $row2['name'];
         $start = new DateTime();
         $end = new DateTime($timestand, timezone_open('asia/dhaka'));
 
@@ -45,7 +43,7 @@ function blogPost($con, $sql)
 
 
 
-        $url = "/E-learning/blog/article/?p=" . $BlogID;
+        $url = "/VolunteerNetwork/blog/article/?p=" . $BlogID;
 
 
         $sql3 = "SELECT * FROM `comments` WHERE `BlogID` =" . $BlogID;
@@ -54,8 +52,8 @@ function blogPost($con, $sql)
 
 
         if (isset($_SESSION['userId']) && ($_SESSION['userId'] == $UserID)) {
-            $post_update_url = '/E-learning/blog/update/?blog=' . $BlogID;
-            $post_dlt_url = '/E-learning/blog/config/_delete.php?BlogID=' . $BlogID;
+            $post_update_url = '/VolunteerNetwork/blog/update/?blog=' . $BlogID;
+            $post_dlt_url = '/VolunteerNetwork/blog/config/_delete.php?BlogID=' . $BlogID;
             $post_update_delete_code = '
                     <div class="dropdown dropstart " style="position: absolute; right:10px">
                         <a href="#" class="d-block link-dark text-decoration-none " id="dropdownUser1"
@@ -81,7 +79,7 @@ function blogPost($con, $sql)
                 <div class="card-header bg-white">
                     <small class="text-muted d-flex">
                         <span>
-                            <i class="fa fa-user-circle text-primary me-1"></i> <?php echo $username ?>
+                            <i class="fa fa-user-circle text-primary me-1"></i> <?php echo $name ?>
                         </span>
                         <?php echo $post_update_delete_code ?>
                     </small>
@@ -90,7 +88,7 @@ function blogPost($con, $sql)
                     <h5 class="card-title">
                         <?php echo $blog_title ?>
                     </h5>
-                    <p class="card-text"><?php echo $short_desc; ?>...</p>
+                    <p class="card-text small"><?php echo $short_desc; ?>...</p>
                     <a onclick="redirectTo('<?php echo $url ?>')" class="text-decoration-none pointer">Continue reading</a>
 
                 </div>

@@ -37,8 +37,11 @@
             <i class="fa fa-user-circle-o m-2" aria-hidden="true"></i>Users
         </a>
 
+        <a class="nav-menu-item pointer" " onclick=" redirectTo('<?php echo $root_url ?>/admin/blog/')">
+            <i class="fa fa-file-archive-o m-2" aria-hidden="true"></i>Blog
+        </a>
         <a class="nav-menu-item pointer" " onclick=" redirectTo('<?php echo $root_url ?>/admin/campaigns/')">
-            <i class="fa fa-file-archive-o m-2" aria-hidden="true"></i>campaigns
+            <i class="fa fa-file-archive-o m-2" aria-hidden="true"></i>Campaigns
         </a>
 
     </div>
