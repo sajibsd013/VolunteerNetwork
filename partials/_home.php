@@ -6,7 +6,7 @@
                     <p class="lead my-4">
                         Volunteering Network is a digital platform for collecting donations to be distributed to people in need. We build strength, stability and self relaince through shelter
                     </p>
-                    <button class="btn btn-primary mb-3">Donate Now</button>
+                    <button class="btn btn-primary mb-3" onclick="redirectTo('<?php echo $root_url ?>/campaigns/')">Donate Now</button>
                 </div>
                 <img class="img-fluid img-responsive" src="<?php echo $root_url ?>/assets/img/donate2-removebg-preview.png" alt="">
             </div>

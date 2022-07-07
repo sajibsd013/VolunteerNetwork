@@ -13,7 +13,7 @@
                         <input type="number" class="form-control _form_data" id="amount" name="amount" placeholder=" " required>
                         <label for="loginEmail">Enter Amount</label>
                     </div>
-                    <input type="text" class="form-control _form_data" name="CampaignID" id="CampaignID" value="<?php echo $_GET['id'] ?>">
+                    <input type="text" class="form-control _form_data d-none" name="CampaignID" id="CampaignID" value="<?php echo $_GET['id'] ?>">
                     <button type="submit" id="submit" class="btn btn-primary btn-sm my-3 w-100">Donate</button>
                 </form>
             </div>
