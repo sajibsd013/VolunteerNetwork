@@ -54,7 +54,7 @@
 
         <div class="container text-center pt-3">
             <small class="copyright py-1">
-                <strong><span>VolunteerNetwork</span></strong>. All Rights Reserved
+                <strong><span>VolunteerNetwork</span></strong>. All Rights Reserved, Developed by <a href="https://github.com/sajibsd013" class="text-decoration-none" target="_blank">Sajib</a> & <a href="https://github.com/Al-Amin49?" target="_blank" class="text-decoration-none">Alamin</a>
             </small>
         </div>
     </footer>
