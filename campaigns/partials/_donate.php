@@ -10,7 +10,7 @@
                 <h5>Donate Now</h5>
                 <form onsubmit="submitForm(event,'<?php echo $action_url ?>')">
                     <div class="form-floating  text-muted">
-                        <input type="number" class="form-control _form_data" id="amount" name="amount" placeholder=" " required>
+                        <input type="number" min="10" class="form-control _form_data" id="amount" name="amount" placeholder=" " required>
                         <label for="loginEmail">Enter Amount</label>
                     </div>
                     <input type="text" class="form-control _form_data d-none" name="CampaignID" id="CampaignID" value="<?php echo $_GET['id'] ?>">
