@@ -1,10 +1,11 @@
 <div class="container">
     <table class="table bg-white border border-top-0" style="font-size: 13px;">
-        <h4 class="fw-normal heading_color">Users</h4>
+        <h4 class="fw-normal heading_color">Blog Post</h4>
 
         <thead class="bg-white">
             <tr>
                 <th scope="col">Title</th>
+                <th scope="col">Author</th>
                 <th scope="col">Published</th>
                 <th scope="col">Action</th>
 
@@ -21,17 +22,31 @@
                 $BlogID   = $row['BlogID'];
                 $title   = $row['blog_title'];
                 $timestand = $row['timestand'];
+                $UserID = $row['UserID'];
 
                 $blog_dlt = $root_url . '/admin/blog/_config.php?BlogID=' . $BlogID;
+                $blog_url = $root_url . '/blog/article/?p=' . $BlogID;
+                $user_url = $root_url . '/profile/?p=' . $UserID;
+
+                $sql_user = "SELECT * FROM `users` WHERE `UserID`=" . $UserID;
+                $result_user = mysqli_query($con, $sql_user);
+                $row_user = mysqli_fetch_assoc($result_user);
+                $name = $row_user['name'];
+
+
 
 
                 echo '
         <tr>
             <td>
-                <a class="text-decoration-none text-bold pointer"  >' . $title . '</a>
+                <a class="text-decoration-none text-bold pointer"  
+                onclick="redirectTo(`' . $blog_url . '`)" >' . $title . '</a>
             </td>
             <td>
-                <a class="text-decoration-none text-bold pointer"  >' . $timestand . '</a>
+                <a class="text-decoration-none text-bold pointer"  onclick="redirectTo(`' . $user_url . '`)"  >' . $name . '</a>
+            </td>
+            <td>
+                <span class="text-bold "  >' . $timestand . '</a>
             </td>
            
             <td class="d-flex ">
