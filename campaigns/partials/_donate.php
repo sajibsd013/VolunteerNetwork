@@ -1,7 +1,9 @@
 <section class="container section_top ">
     <?php
     if (isset($_GET["id"])) {
+        
         $action_url = $root_url . '/campaigns/config/_config.php';
+
 
     ?>
         <div class="row">

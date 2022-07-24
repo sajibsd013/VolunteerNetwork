@@ -13,6 +13,7 @@
             $email = $row['email'];
             $mobile = $row['mobile'];
             $address = $row['address'];
+            $User_ID = $row['UserID'];
         ?>
             <div class="col-md-4 col-sm-6 _cursor_pointer">
                 <div class='card shadow rounded'>
@@ -25,7 +26,7 @@
                         <small class="card-text d-block text-muted"><?php echo $mobile ?></small>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-sm btn-dark w-100" onclick="redirectTo('<?php echo $root_url ?>/profile/?p=<?php echo $UserID ?>')">View Profile</button>
+                        <button class="btn btn-sm btn-dark w-100" onclick="redirectTo('<?php echo $root_url ?>/profile/?p=<?php echo $User_ID ?>')">View Profile</button>
                     </div>
                 </div>
             </div>

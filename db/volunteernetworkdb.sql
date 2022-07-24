@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 01, 2022 at 02:02 PM
+-- Generation Time: Jul 24, 2022 at 08:01 AM
 -- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -143,7 +143,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`UserID`, `name`, `email`, `mobile`, `password`, `birthday`, `gender`, `last_blood_donate`, `blood_group`, `address`, `user_type`) VALUES
-(83, 'Sajib Sutradhar', 'sajibsd013@gmail.com', '01771147384', '$2y$10$9VhDi.1fsjuCd66MKJsyzerMMx4oGuLSlPfRpTA05VCUomE.mNGkO', '1999-01-25', 'Male', '0000-00-00', 'B+', 'Osmaninagar, Sylhet', 'admin');
+(83, 'Sajib Sutradhar', 'sajibsd013@gmail.com', '01771147384', '$2y$10$9VhDi.1fsjuCd66MKJsyzerMMx4oGuLSlPfRpTA05VCUomE.mNGkO', '1999-01-25', 'Male', '0000-00-00', 'B+', 'Osmaninagar, Sylhet', 'user'),
+(85, 'Alamin', 'alamin@gmail.com', '123456789', '$2y$10$pXHtULosUIqzMZX5hlMRz.Lzpv5kZOp/aOxou2xV9SLAMbxb9TGru', '1999-01-01', 'Male', '0000-00-00', 'A+', 'abcd', 'user'),
+(86, 'administrator', 'admin@gmail.com', '123456789', '$2y$10$AogMUyGgyz1ATuTTd9tDp.Afhn2htWxhKnsYstbvv/kDlIZ310Ibu', '1999-01-01', 'Male', '0000-00-00', 'B+', 'xyz', 'admin');
 
 -- --------------------------------------------------------
 
@@ -240,7 +242,7 @@ ALTER TABLE `reply`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `UserID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
+  MODIFY `UserID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
 
 --
 -- AUTO_INCREMENT for table `votes`

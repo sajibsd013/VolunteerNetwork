@@ -21,6 +21,12 @@
                 $to_go = 0;
             }
 
+            if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] == true) {
+               $action_url= $root_url."/campaigns/donate.php?id=".$CampaignID;
+            }else{
+               $action_url= $root_url."/auth/login";
+            }
+
 
         ?>
             <div class="col-md-4 ">
@@ -50,7 +56,7 @@
                         </div>
                     </div>
                     <div class="card-footer bg-white">
-                        <button class="btn btn-outline-dark btn-sm w-100" onclick="redirectTo('<?php echo $root_url ?>/campaigns/donate.php?id=<?php echo $CampaignID ?>')">Donate Now</button>
+                        <button class="btn btn-outline-dark btn-sm w-100" onclick="redirectTo('<?php echo $action_url ?>')">Donate Now</button>
                     </div>
                 </div>
             </div>
