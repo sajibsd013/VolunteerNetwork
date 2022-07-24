@@ -3,9 +3,9 @@ session_start();
 include '../../db/_db.php';
 
 if(isset($_POST['email'])){
-	$email=mysqli_real_escape_string($con,$_POST['email']);
-	$password=mysqli_real_escape_string($con,$_POST['password1']);
-	$cpassword=mysqli_real_escape_string($con,$_POST['password2']);
+	$email= $_POST['email'];
+	$password= $_POST['password1'];
+	$cpassword= $_POST['password2'];
 
 	if($password==$cpassword){
 		$pass=password_hash($password, PASSWORD_BCRYPT);

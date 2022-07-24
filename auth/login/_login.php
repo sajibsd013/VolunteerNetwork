@@ -1,18 +1,15 @@
 <?php
 session_start();
-session_destroy();
-session_start();
 
 include '../../db/_db.php';
 
 if (isset($_POST['loginEmail'])) {
-	$email = mysqli_real_escape_string($con, $_POST['loginEmail']);
-	$password = mysqli_real_escape_string($con, $_POST['loginPassword']);
+	$email = $_POST['loginEmail'];
+	$password =$_POST['loginPassword'];
 	$email_search = "SELECT * from users where email='$email'";
 
 	$query = mysqli_query($con, $email_search);
 	$email_count = mysqli_num_rows($query);
-
 
 	if ($email_count) {
 		$row = mysqli_fetch_assoc($query);

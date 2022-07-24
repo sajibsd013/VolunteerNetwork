@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$current_path = "/NEUBSSC/auth/registration/";
+$current_path = "/VolunteerNetwork/auth/registration/";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     include '../../db/_db.php';

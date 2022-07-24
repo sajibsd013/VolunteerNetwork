@@ -36,7 +36,6 @@
                     <div class="card-body">
                         <h5 class="card-title text-success"><?php echo $title ?></h5>
                         <p class="card-text"><?php echo $description ?></p>
-                        <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
                         <div class="progress">
                             <div class="progress-bar" role="progressbar" style="width: <?php echo $percent ?>%;" aria-valuenow="<?php echo number_format($percent, 2); ?>" aria-valuemin="0" aria-valuemax="100"><?php echo number_format($percent, 2) ?>%</div>
                         </div><br>
