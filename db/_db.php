@@ -3,6 +3,6 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "volunteernetworkdb";
+$database = "db_volunteernetwork";
 
 $con = mysqli_connect($servername, $username, $password, $database);

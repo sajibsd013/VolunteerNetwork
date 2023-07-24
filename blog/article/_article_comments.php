@@ -126,7 +126,7 @@ while ($row = mysqli_fetch_assoc($result)) {
                 <span class="me-auto"><i class="fa fa-user-circle text-primary me-1"></i> <?php echo $comment_by ?></span>
                 <?php echo $comment_update_delete_code ?>
             </small>
-            <pre class=""><?php echo $comment ?></pre>
+            <p class=""><?php echo $comment ?></p>
 
             <?php echo $comment_vote_text ?>
             <?php echo $like_reply__code ?>

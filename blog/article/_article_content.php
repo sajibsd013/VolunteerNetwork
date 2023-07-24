@@ -101,7 +101,7 @@ $action_url = "/VolunteerNetwork/blog/config/_post_comment.php";
                     </p>
                 </div>
                 <div class="card-body">
-                    <pre class="" style="margin: 0;"><?php echo $blog_desc ?></pre>
+                    <p class="" style="margin: 0;"><?php echo $blog_desc ?></p>
                 </div>
 
                 <?php

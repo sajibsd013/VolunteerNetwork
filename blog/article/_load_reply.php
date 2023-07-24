@@ -109,7 +109,7 @@ if ($rows2 > 0) {
                     <?php echo $reply_update_delete_code ?>
 
                 </small>
-                <pre class=""><?php echo $reply ?></pre>
+                <p class=""><?php echo $reply ?></p>
                 <?php echo $reply_vote_text ?>
                 <?php echo $Like_Code_reply ?>
             </div>
